@@ -2,6 +2,25 @@
 
 <ul>
     {%for list in blog_list %}
-        <a href="" style="color: black"><li> {{list}} </li></a>
+        <a href="" style="color: black" id="list_value"><li  class="list_value" data-value="{{ list }}"> {{list}} </li></a>
     {% endfor %}
 </ul>
+
+<script>
+     // Add an event listener for clicks on any list item
+     document.querySelectorAll('.list_value').forEach(function(element) {
+        element.addEventListener('click', function(event) {
+            // Prevent the default action (i.e., navigating to the link)
+            event.preventDefault();
+            
+            // Get the data-value attribute from the clicked anchor
+            let value = event.target.getAttribute('data-value');
+            
+            if (value == "First Day High") {
+                window.location.href = "1"
+            }else {
+                window.location.href = "2"
+            }
+        });
+    });
+</script>
